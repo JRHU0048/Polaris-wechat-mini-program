@@ -1,0 +1,9 @@
+.nav-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-li {
+  width: 95%;  /*宽度占比95%*/
+  margin-bottom: 15px; /* 根据需要调整卡片之间的间距 */
+}

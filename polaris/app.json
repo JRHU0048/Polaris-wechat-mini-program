@@ -1,0 +1,73 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/login",
+    "pages/topic/topic",
+    "pages/topic/topiclist/topiclist",
+    "pages/mine/mine",
+    "pages/mine/collection/collection",
+    "pages/mine/notice/notice",
+    "pages/mine/release/release",
+    "pages/mine/point/point",
+    "pages/mine/about/about",
+    "pages/mine/avatar/avatar",
+    "pages/mine/resource/resource",
+    "pages/mine/point/pointDetail",
+    "pages/admin/index",
+    "pages/detail/detail",
+    "pages/admin/articleList/articleList",
+    "pages/admin/labelList/labelList",
+    "pages/admin/comment/comment",
+    "pages/admin/classify/classify",
+    "pages/admin/advert/advert",
+    "pages/admin/member/member",
+    "pages/admin/isShow/isshow",
+    "pages/admin/kindList/kindList",
+    "pages/mine/workupload/workupload",
+    "pages/chatroom/chatroom",
+    "pages/topic/topiclist/QAcommunity/QAcommunity",
+    "pages/mine/login/login",
+    "pages/mine/changePassword/changePassword",
+    "pages/topic/topiclist/registration/registration"
+  ],
+  "window": {
+    "backgroundColor": "#008e8f",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#008e8f",
+    "navigationBarTitleText": "北极星",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#959394",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/tab/home.png",
+        "selectedIconPath": "/images/tab/home_clicked.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/topic/topic",
+        "iconPath": "/images/tab/function.png",
+        "selectedIconPath": "/images/tab/function_clicked.png",
+        "text": "专题"
+      },
+      {
+        "pagePath": "pages/chatroom/chatroom",
+        "iconPath": "/images/tab/contact.png",
+        "selectedIconPath": "/images/tab/contact_clicked.png",
+        "text": "组队"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "/images/tab/mine.png",
+        "selectedIconPath": "/images/tab/mine_clicked.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

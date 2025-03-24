@@ -1,0 +1,24 @@
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view class="section">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{competitions}}">
+        <view class="picker">
+          当前选择：<view class="picker-text">{{competitions[index] || '请选择竞赛'}}</view>
+        </view>
+      </picker>
+    </view>
+    <view class="section">
+      <input name="studentID" placeholder="请输入学号" />
+    </view>
+    <view class="section">
+      <input name="name" placeholder="请输入姓名"/>
+    </view>
+    <view class="section">
+      <input name="phone" placeholder="请输入电话号码" />
+    </view>
+    <view class="section">
+      <input name="teacher" placeholder="请输入指导老师姓名" />
+    </view>
+    <button formType="submit">提交</button>
+  </form>
+</view>

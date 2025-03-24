@@ -1,0 +1,17 @@
+<!--pages/mine/about/about.wxml-->
+<view class='margin-xl bg-white padding-xl radius-xl shadow-lg'>
+  <view class='text-center margin-bottom text-lg text-orange'>关于《北极星》小程序</view>
+  <view class='text-content'>
+    <view>Hi！各位用户，欢迎使用《北极星》学科竞赛助手！</view>
+    <view class='margin-top-sm'>《北极星》是为学院“智科杯”科技竞赛专门打造的小程序。它集成了丰富的功能，如竞赛类别展示、交流社区平台、报名通知链接、比赛技能学习、参赛作品管理以及参赛报销管理等。我们还在不断探索更多实用功能，为大家带来更好的使用体验。</view>
+  </view>
+</view>
+
+<view class='margin-xl bg-white padding-xl radius-xl shadow-lg'>
+  <view class='text-center margin-bottom text-lg text-orange'>特别感谢</view>
+  <view class='text-content'>
+    <view>UI组件库：Colour-UI 2.0</view>
+    <view class='margin-top-sm'>Markdown插件：Towxml 2.0</view>
+    <view class='margin-top-sm'>开源项目框架：https://github.com/XiaokangLei/MiniBlog?tab=readme-ov-file</view>
+  </view>
+</view>

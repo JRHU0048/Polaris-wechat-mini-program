@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "北极星",
+  "enablePullDownRefresh": true, 
+  "usingComponents": {
+    "image-loader": "../../components/image-loader/image-loader"
+  }
+}

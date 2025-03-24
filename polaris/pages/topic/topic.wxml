@@ -1,0 +1,22 @@
+<import src="/templates/nodata.wxml" />
+
+
+<view class='nav-list margin-top'>
+  <view class="nav-li bg-{{item.color || 'blue'}} light shadow" wx:for="{{classifyList}}" wx:key="index" id="{{item._id}}" data-tname="{{item.value.classifyName}}" bindtap='{{item.icon}}'>
+    <view class="nav-title">{{item.value.classifyName}}</view>
+    <view class="nav-name">
+      <view class="text-cut" style="width:500rpx">{{item.value.classifyDesc}}</view>
+    </view>
+    <text class="cuIcon-{{item.icon || 'cascades'}} text-shadow text-xxl"></text>
+  </view>
+</view>
+
+
+<view wx:if="{{loading}}">
+  <view class="cu-load loading text-orange"></view>
+</view>
+
+<!-- 数据不存在 -->
+<view wx:if="{{nodata}}">
+  <template is="nodata" />
+</view>

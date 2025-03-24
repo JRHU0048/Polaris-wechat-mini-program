@@ -1,0 +1,122 @@
+<import src="/templates/nodata.wxml" />
+
+<!-- swiper -->
+<view class="padding-bottom-xs padding-lr" style="background: linear-gradient(to bottom, #008e8f, #FFFFFF);" wx:if="{{swiperList.length > 0}}">
+  <swiper class="screen-swiper square-dot" style="overflow:hidden; border-radius:32rpx;transform: translateY(0);" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+    <swiper-item wx:for="{{swiperList}}" wx:key="item" id="{{item.postId}}" data-db="mini_posts" bindtap="bindPostDetail">
+      <image-loader wx:if="{{item.type=='image'}}" mode="aspectFill" width="750rpx" height="420rpx" originalImage="{{item.url}}" finishLoadFlag="{{finishLoadFlag}}" errorFlag="{{errorFlag}}" bind:changeFlag="changeFlag"></image-loader>
+      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 分类跳转 -->
+<view class="cu-list grid col-3 no-border text-black">
+  <view class="cu-item" wx:for="{{iconList}}" wx:key="idx" bindtap="{{item.bindtap}}">
+    <view class="cuIcon-{{item.icon}} text-{{item.color}} text-shadow">
+      <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+        <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
+      </view>
+    </view>
+    <text>{{item.name}}</text>
+  </view>
+</view>
+
+<!-- 搜索栏 -->
+<view class='box'>
+  <form bindsubmit='bindconfirm'>
+    <view class="cu-bar search bg-white">
+      <view class='search-form round'>
+        <text class="cuIcon-search"></text>
+        <input type="text" placeholder="搜索感兴趣的内容" value="{{defaultSearchValue}}" bindconfirm="bindconfirm" name="searchContent" confirm-type="search"></input>
+      </view>
+      <view class="action" wx:if="{{cancel}}" bindtap='onPullDownRefresh'>
+        <text class="text-orange">取消</text>
+      </view>
+    </view>
+  </form>
+  <scroll-view scroll-x class="bg-white nav solid-bottom">
+    <view class="flex text-center">
+      <view wx:for="{{navItems}}" wx:key="idx" wx:for-index="idx" data-data="{{item}}" class="cu-item flex-sub {{item.index==tabCur?'text-orange cur':'text-black'}}" bindtap='tabSelect' data-id="{{item.index}}">
+        {{item.name}}
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view wx:if="{{showHot}}" scroll-x class="bg-white nav solids-bottom">
+    <view class="padding-sm bg-white">
+      <view wx:for="{{hotItems}}" wx:key="idx" wx:for-index="idx" data-data="{{item}}" class="cu-tag round lg {{idx==hotCur?'bg-blue light':''}}" bindtap='hotSelect' data-id="{{idx}}">
+        {{item}}
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view wx:if="{{showLabels}}" scroll-x class="bg-white nav solids-bottom">
+    <view class="padding-sm bg-white">
+      <view class="cu-tag round lg {{'全部'==labelCur?'bg-blue light':''}}" data-id="全部" bindtap='labelSelect'>全部</view>
+      <view wx:for="{{labelList}}" wx:key="idx" wx:for-index="idx" wx:for-item="item" class="cu-tag round lg {{item.value['label']==labelCur?'bg-blue light':''}}" bindtap='labelSelect' data-id="{{item.value['label']}}">
+        {{item.value['label']}}
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 文章列表 -->
+<view class="margin-top-xs">
+  <view wx:for="{{posts}}" wx:key="idx" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}" data-db="mini_posts" id="{{item._id}}" bindtap="bindPostDetail">
+    <view class="cu-card article padding-bottom-xs padding-lr-xs">
+      <view class="cu-item shadow-warp bg-white">
+        <view class="flex">
+          <view class="title text-cut" style="max-width:580rpx">{{item.title}}</view>
+          <block wx:for="{{item.label}}" wx:key="idxx" wx:for-item="itemm">
+            <view class="margin-tb-sm cu-tag bg-mauve light sm round" wx:if="{{itemm}}">{{itemm}}</view>
+          </block>
+        </view>
+        <view class="content">
+          <image src="{{item.defaultImageUrl}}" mode="aspectFill"></image>
+          <view class="desc">
+            <view class="text-content text-black">{{item.abstract}}</view>
+            <view class="flex text-gray text-sm">
+              <view class='flex-sub text-left padding-left-xxs' wx:if="{{item._createTime}}">
+                <text class="cuIcon-time"></text>
+                {{m1.format(item._createTime)}}
+              </view>
+              <view class='flex-sub text-right padding-right-sm'>
+                <text class="cuIcon-attention" />
+                {{item.totalVisits}}
+                <text class="cuIcon-like padding-left-xs" />
+                {{item.totalZans}}
+                <text class="cuIcon-message padding-left-xs" />
+                {{item.totalComments}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 加载中 -->
+<view wx:if="{{loading}}">
+  <view class="cu-load loading text-orange"></view>
+</view>
+
+<!-- 数据不存在 -->
+<view wx:if="{{nodata}}">
+  <template is="nodata" />
+</view>
+
+<!-- 数据加载完 -->
+<view wx:if="{{nomore && !nodata}}">
+  <view class="cu-load loading text-orange over"></view>
+</view>
+
+<!-- 时间戳转换为日期 -->
+<wxs module="m1">
+  function format(ts) {
+    if (ts) {
+      var d = getDate(ts)
+      return [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('.')
+    }
+  }
+  module.exports.format = format
+</wxs>

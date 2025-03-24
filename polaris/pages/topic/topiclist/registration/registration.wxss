@@ -1,0 +1,69 @@
+.container {
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* 圆角 */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+  width: 100%;
+  cursor: pointer; /* 鼠标指针变为手形 */
+  transition: border-color 0.3s, box-shadow 0.3s; /* 平滑过渡效果 */
+}
+
+.picker-text {
+  flex-grow: 1;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+}
+
+/* 下拉选项样式 */
+picker-view {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+picker-view-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+picker-view-item {
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+picker-view-item:last-child {
+  border-bottom: none;
+}
+
+/* 输入框样式 */
+.section input {
+  height:40px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc; /* 添加边框 */
+  border-radius: 5px; /* 圆角 */
+  font-size: 16px;
+  color: #000; /* 输入文本颜色为黑色 */
+  transition: border-color 0.3s; /* 边框颜色平滑过渡 */
+}

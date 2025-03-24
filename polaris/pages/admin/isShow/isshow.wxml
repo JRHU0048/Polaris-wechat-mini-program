@@ -1,0 +1,24 @@
+<!--pages/admin/isShow/isshow.wxml-->
+<form bindsubmit="formSubmit">
+<!-- 定义了一个表单元素，当表单提交时会触发名为formSubmit的函数 -->
+  <!-- 评论、海报和打赏 -->
+  <view class="cu-bar bg-white solid-bottom">
+    <view class='action'>
+      <text class='cuIcon-titles text-blue'></text>
+      开启评论、海报和打赏
+    </view>
+  </view>
+  <view class="cu-list menu shadow-lg">
+    <view class="cu-form-group">
+      <view class="title">是否开启：</view>
+      <switch name='isShowStatus' checked="{{isShow}}"></switch>
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="cu-bar btn-group foot">
+      <button class="cu-btn bg-blue shadow-blur lg" formType="submit">保存</button>
+      <!-- 点击该按钮会触发表单的提交操作 -->
+    </view>
+  </view>
+</form>

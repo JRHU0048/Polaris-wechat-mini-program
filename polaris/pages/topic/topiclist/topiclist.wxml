@@ -1,0 +1,75 @@
+<import src="/templates/nodata.wxml" />
+
+<scroll-view scroll-x class="bg-white nav solids-bottom" scroll-with-animation wx:if="{{!loading && kindList.length > 0}}">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{item==kindCur?'text-green':''}}" wx:for="{{kindList}}" wx:key="idx" wx:for-index="idx" wx:for-item="item" bindtap='kindSelect' data-id="{{item}}">
+      {{item}}
+    </view>
+  </view>
+</scroll-view>
+
+<scroll-view scroll-x class="bg-white nav solids-bottom" wx:if="{{!loading && labelList.length > 0}}">
+  <view class="padding-sm bg-white">
+    <view wx:for="{{labelList}}" wx:key="idx" wx:for-index="idx" wx:for-item="item" class="cu-tag round lg {{item==labelCur?'bg-blue light':''}}" bindtap='labelSelect' data-id="{{item}}">
+      {{item}}
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 文章列表 -->
+<view wx:for="{{posts}}" wx:key="idx" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}" id="{{item._id}}" data-db="mini_posts" bindtap="bindPostDetail">
+  <view class="cu-card article">
+    <view class="cu-item shadow">
+      <view class="flex">
+        <view class="title text-cut" style="max-width:580rpx">{{item.title}}</view>
+        <view class="margin-tb-sm cu-tag bg-red light sm round">{{item.label}}</view>
+      </view>
+      <view class="content">
+        <image src="{{item.defaultImageUrl}}" mode="aspectFill"></image>
+        <view class="desc">
+          <view class="text-content">{{item.abstract}}</view>
+          <view class="flex text-gray text-sm">
+            <view class='flex-sub text-left padding-left-xxs' wx:if="{{item._createTime}}">
+              <text class="cuIcon-time"></text>
+              {{m1.format(item._createTime)}}
+            </view>
+            <view class='flex-sub text-right padding-right-sm'>
+              <text class="cuIcon-attention" />
+              {{item.totalVisits}}
+              <text class="cuIcon-like padding-left-xs" />
+              {{item.totalZans}}
+              <text class="cuIcon-message padding-left-xs" />
+              {{item.totalComments}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{loading}}">
+  <view class="cu-load loading text-orange"></view>
+</view>
+
+<!-- 数据加载完 -->
+<view wx:if="{{nomore && !nodata}}">
+  <view class="cu-load loading text-orange over"></view>
+</view>
+
+<!-- 数据不存在 -->
+<view wx:if="{{nodata}}">
+  <template is="nodata" />
+</view>
+
+<!-- 时间格式化 -->
+<wxs module="m1">
+  function format(ts) {
+    if (ts) {
+      var d = getDate(ts)
+      return [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('/')
+    }
+
+  }
+  module.exports.format = format
+</wxs>

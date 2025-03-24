@@ -1,0 +1,12 @@
+<!-- pages/mine/workupload/workupload.wxml -->
+<view class="container">
+  <button bindtap="chooseFile" class="choose-file-btn">选择文件</button>
+  
+  <view class="progress-container" hidden="{{!isUploading}}">
+    <text>上传进度: {{progress}}%</text>
+  </view>
+  
+  <view class="result-container" hidden="{{!isUploaded}}">
+    <text>{{uploadResult}}</text>
+  </view>
+</view>

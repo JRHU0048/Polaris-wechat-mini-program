@@ -1,0 +1,45 @@
+<view class="container">
+  <view class="input-group">
+    <text class="label">学号:</text>
+    <input type="text" placeholder="请输入学号" bindinput="bindStudentIdInput" class="input" />
+  </view>
+  <view class="input-group">
+    <text class="label">姓名:</text>
+    <input type="text" placeholder="请输入姓名" bindinput="bindNameInput" class="input" />
+  </view>
+  <view class="input-group">
+    <text class="label">密码:</text>
+    <input type="password" placeholder="请输入密码" bindinput="bindPasswordInput" class="input" />
+  </view>
+  <view class="input-group">
+    <text class="label">头像:</text>
+    <view class="avatar-container">
+      <block wx:if="{{avatarUrl}}">
+        <image src="{{avatarUrl}}" mode="aspectFit" class="avatar" />
+      </block>
+      <block wx:else>
+        <view class="default-avatar cuIcon-people"></view>
+      </block>
+    </view>
+    <button bindtap="chooseImage" class="choose-image-btn">选择头像</button>
+  </view>
+  <button bindtap="submit" class="submit-btn">提交</button>
+</view>
+
+<!-- pages/mine/login/login.wxml
+<view class="container">
+  <view class="input-group">
+    <text>学号:</text>
+    <input type="text" placeholder="请输入学号" bindinput="bindStudentIdInput" />
+  </view>
+  <view class="input-group">
+    <text>姓名:</text>
+    <input type="text" placeholder="请输入姓名" bindinput="bindNameInput" />
+  </view>
+  <view class="input-group">
+    <text>头像:</text>
+    <button bindtap="chooseImage">选择头像</button>
+    <image src="{{avatarUrl}}" mode="aspectFit" style="width: 100px; height: 100px;"></image>
+  </view>
+  <button bindtap="submit">提交</button>
+</view> -->

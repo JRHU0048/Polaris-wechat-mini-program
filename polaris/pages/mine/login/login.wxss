@@ -1,0 +1,133 @@
+/* 容器样式 */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+/* 输入组样式 */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  min-height: 50px;
+  box-sizing: border-box; /* 确保内边距和边框包含在高度内 */
+}
+
+/* 标签样式 */
+.label {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* 输入框样式 */
+.input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 50px;/* 设置输入框高度 */
+}
+
+/* 选择头像按钮样式 */
+.choose-image-btn {
+  margin-top:20px;/*按钮与上方元素之间的距离*/
+  background-color: #008e8f;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* 头像容器样式 */
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* 头像样式 */
+.avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover; /* 保持图片比例并裁剪超出部分 */
+  border-radius: 50%; /* 圆形头像 */
+}
+
+
+/* 默认头像样式 */
+.default-avatar {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  color: #ccc;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+
+
+/* 提交按钮样式 */
+.submit-btn {
+  background-color: #008e8f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* 按钮悬停效果 */
+.choose-image-btn:hover, .submit-btn:hover {
+  background-color: #008e8f;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .input-group {
+    width: 100%;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+}
+
+
+
+
+/* pages/mine/login/login.wxss
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+input {
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-left: 10px;
+  width: 200px;
+} */

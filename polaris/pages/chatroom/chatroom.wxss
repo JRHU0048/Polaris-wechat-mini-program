@@ -1,0 +1,232 @@
+/* pages/chatroom/chatroom.wxss */
+/*这里有一些样式定义没有用了，但是能跑最好不要改,嘻嘻*/
+
+/* 添加一些边框、阴影或背景颜色的变化，以突出导航区域 */
+.nav {
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 调整包含 navItems 的 scroll-view 的大小 */
+.scroll-view[class*="nav"] {
+  width: 100%;
+  height: 60rpx; /* 根据需要调整高度 */
+}
+
+/* 调整每个 navItem 的样式 */
+.navItem {
+  font-size: 35rpx; /* 增大字体大小 */
+  padding: 10rpx 20rpx; /* 增加内边距 */
+  border-radius: 15rpx; /* 调整边框半径 */
+}
+
+/* 增大 hotItem 的大小 */
+.cu-tag.round.lg {
+  font-size: 30rpx; /* 增大字体大小 */
+  padding: 10rpx 20rpx; /* 增加内边距 */
+  border-radius: 15rpx; /* 调整边框半径 */
+}
+
+/* 调整包含 hotItems 的 view 的样式 */
+.padding-sm.bg-white {
+  padding: 20rpx;
+}
+
+.post {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.username {
+  font-weight: bold;
+}
+.userid {
+  color: gray;
+}
+.post-content {
+  margin-bottom: 10px;
+}
+.post-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.post-img {
+  max-height: 250px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.post-text {
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.post-text.expanded {
+  max-height: none;
+}
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  text-align: right;
+}
+.custom-button {
+  font-size: 20px;
+  font-family: "黑体", "Heiti SC", "STHeiti", sans-serif;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  padding: 10px 20px; /* 添加内边距，使按钮有一定的大小 */
+  border: 1px solid #333; /* 添加边框 */
+  border-radius: 5px; /* 设置圆角半径，使其看起来不那么生硬 */
+  background-color: #020202; /* 添加背景颜色 */
+}
+.custom-button image {
+  vertical-align: middle;
+}
+
+/* 对label做的调整 */
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.title {
+  max-width: 580rpx;
+  flex-grow: 1;
+}
+
+.cu-tag {
+  margin-left: 5rpx; /* 添加标签之间的间距 */
+}
+/* 对label做的调整 */
+
+
+/* 对时间样式做调整 */
+.text-sm {
+  font-size: 28rpx; /*调整字体大小*/
+}
+.padding-top-md { padding-top: 15rpx; }/*调整上内边距*/
+/* 对时间样式做调整 */
+
+
+/* 悬浮发布按钮样式 */
+.floating-button {
+  position: fixed;
+  bottom: 80rpx;
+  right: 60rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #008e8f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* 边框圆角 */
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* 确保是浮动按钮 */
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-dialog {
+  background-color: #fff;
+  padding: 30rpx;
+  border-radius: 15rpx;
+  width: 90%; /* 设置宽度为屏幕的90% */
+  /* width: 95%;
+  max-width: 500rpx; */
+  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #333;
+}
+
+.modal-body {
+  margin-bottom: 20rpx;
+}
+
+.input-field {
+  height: 60rpx;/*问题标题框的高度设置*/
+  width: 100%; /* 屏幕宽度的 100% */
+  margin-bottom: 20rpx;
+  padding: 10rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.textarea-field {
+  width: 100%; /* 屏幕宽度的 100% */
+  height: 200rpx; /* 固定高度 */
+  padding: 10rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20rpx;
+}
+
+.modal button {
+  padding: 15rpx 30rpx;
+  border: none;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: white;
+  background-color: #008e8f;
+  transition: background-color 0.3s ease;
+} 
+
+/*提交取消按钮样式*/
+.modal button:hover {
+  background-color: #008e8f;
+}
+
+.modal button:active {
+  background-color: #008e8f;
+} 

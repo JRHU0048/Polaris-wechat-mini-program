@@ -1,0 +1,154 @@
+
+<!-- pages/topic/topiclist/QAcommunity/QAcommunity.wxml -->
+
+<view class="container">
+  <block wx:for="{{questions}}" wx:key="_id">
+    <view class="question-item">
+      <view class="question-title">{{item.title}}</view>
+      <view class="question-content">{{item.content}}</view>
+      <view class="question-meta">
+        <text>提问者：{{item.author}}</text>
+        <text>发布时间：{{m1.format(item._createTime)}}</text>
+      </view>
+      <view class="answers">
+        <block wx:for="{{item.answers}}" wx:key="_id">
+          <view class="answer-item">
+            <view class="answer-meta">
+              <text>回复者：{{item.author}}</text>
+              <text>回复时间：{{m1.format(item.createTime)}}</text>
+            </view>
+            <view class="answer-content">{{item.content}}</view>
+          </view>
+        </block>
+      </view>
+      <button class="reply-button" bindtap="replyToQuestion" data-_id="{{item._id}}">回复TA</button>
+    </view>
+  </block>
+
+
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+
+  <view class="no-more" wx:if="{{!hasMore && !loading}}">
+    <text>没有更多问题了</text>
+  </view>
+
+
+  <!-- 添加悬浮按钮 -->
+  <!-- TODO 这里想换成自己设计的图标，还没实现 -->
+  <view class="floating-button" bindtap="showModal">
+    发布
+  </view>
+  
+  <!-- 添加提问模态框 -->
+  <view class="modal" wx:if="{{modalVisible}}">
+    <view class="modal-dialog">
+      <view class="modal-header">
+        <text>发布问题</text>
+      </view>
+      <view class="modal-body">
+        <input placeholder="请输入问题标题" value="{{modalTitle}}" bindinput="onTitleChange" class="input-field"/>
+        <textarea placeholder="请输入问题描述" value="{{modalContent}}" bindinput="onContentChange" class="textarea-field"/>
+      </view>
+      <view class="modal-footer">
+        <button bindtap="hideModal">取消</button>
+        <button bindtap="submitQuestion">提交</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 添加回复模态框 -->
+  <view class="modal" wx:if="{{replyVisible}}">
+    <view class="modal-dialog">
+      <view class="modal-header">
+        <text>回复问题</text>
+      </view>
+      <view class="modal-body">
+        <textarea placeholder="请输入回复内容" value="{{replyContent}}" bindinput="onReplyChange" class="textarea-field"/>
+      </view>
+      <view class="modal-footer">
+        <button bindtap="hideReplyModal">取消</button>
+        <button bindtap="submitReply">提交</button>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 时间戳转换为日期 -->
+<wxs module="m1">
+  function format(ts) {
+    if (ts) {
+      var d = getDate(ts)
+      return [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('.')
+    }
+  }
+  module.exports.format = format
+</wxs>
+
+
+  <!-- <view class="question-item" wx:for="{{questions}}" wx:key="id" bindtap="replyToQuestion" data-id="{{item._id}}">
+    <view class="question-title">
+      {{item.title}}
+    </view>
+    <view class="question-content">
+      {{item.content}}
+    </view>
+    <view class="question-meta">
+      <text>提问者：{{item.author}}</text>
+      <text>发布时间：{{m1.format(item._createTime)}}</text>
+    </view>
+    <view class="answers">
+      <view class="answer-item" wx:for="{{item.answers}}" wx:key="index">
+        <view class="answer-author">
+          <text>回答者：{{answer.author}}</text>
+        </view>
+        <view class="answer-content">
+          {{answer.content}}
+        </view>
+        <view class="answer-meta">
+          <text>回答时间：{{m1.format(answer.createTime)}}</text>
+        </view>
+      </view>
+    </view>
+    //<view class="reply-button" bindtap="replyToQuestion" data-id="{{item.id}}">
+      回复
+    //</view>
+  </view>
+ -->
+
+  <!-- 添加提问模态框
+  <view class="modal" wx:if="{{modalVisible}}">
+    <view class="modal-dialog">
+      <view class="modal-header">
+        <text>发布问题</text>
+      </view>
+      <view class="modal-body">
+        <input placeholder="请输入问题标题" value="{{modalTitle}}" bindinput="onTitleChange" class="input-field"/>
+        <textarea placeholder="请输入问题描述" value="{{modalContent}}" bindinput="onContentChange" class="textarea-field"/>
+      </view>
+      <view class="modal-footer">
+        <button bindtap="hideModal">取消</button>
+        <button bindtap="submitQuestion">提交</button>
+      </view>
+    </view>
+  </view> -->
+
+  <!-- 添加回复模态框
+  <view class="modal" wx:if="{{replyVisible}}">
+    <view class="modal-dialog">
+      <view class="modal-header">
+        <text>回复问题</text>
+      </view>
+      <view class="modal-body">
+        <textarea placeholder="请输入回复内容" value="{{replyContent}}" bindinput="onReplyChange" class="textarea-field"/>
+      </view>
+      <view class="modal-footer">
+        <button bindtap="hideReplyModal">取消</button>
+        <button bindtap="submitReply">提交</button>
+      </view>
+    </view>
+  </view>
+ -->
+

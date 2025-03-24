@@ -1,0 +1,45 @@
+/* pages/mine/workupload/workupload.wxss */
+page {
+  height: 100%;
+  background-image: url('https://pic.imgdb.cn/item/67137141d29ded1a8c677497.jpg');  /* 背景图片路径 */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 60%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: white; /* 添加白色背景 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果，使容器更加突出 */
+  border-radius: 10px; /* 添加圆角效果 */
+  background-color: rgba(255, 255, 255, 0.6); /* 给容器添加半透明背景色 */
+}
+
+.choose-file-btn {
+  width: 90%;
+  background-color: #008e8f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px; /* 为按钮下方添加一些间距 */
+}
+
+.progress-container {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.result-container {
+  margin-top: 20px;
+  font-size: 16px;
+  color: green;
+}

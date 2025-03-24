@@ -45,7 +45,7 @@
     "ignoreUploadUnusedFiles": false,
     "localPlugins": false
   },
-  "appid": "wxa842152d2e79d750",
+  "appid": "XXXXXXXXXX",
   "projectname": "quickstart-wx-cloud",
   "libVersion": "2.14.1",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",

@@ -1,7 +1,7 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 cloud.init({
-  env: 'hu2419-2g5edmmqa8bf6bd8'
+  env: 'hu2419-xxx'
 })
 
 // const rp = require('request-promise');
